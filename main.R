@@ -1,14 +1,14 @@
 library(R.utils)
 
-setwd("C:/Users/gleas/Google Drive/Coding/R/team 17 predictive final")
-sourceDirectory(path = "utilityfunctions", pattern = "*.R")
+setwd("C:/Users/gleas/Google Drive/Coding/R/")
+sourceDirectory(path = "kiva/utilityfunctions", pattern = "*.R")
 
 load_libraries()
 
 # Load data ----------------------
 
 kiva <- 
-  read_csv(file = "C:/Users/gleas/Google Drive/Grad School/Predictive Final/loans/loans.csv")
+  read_csv(file = "C:/Users/gleas/Google Drive/Coding/R/Data Sources/kiva/loans.csv")
 
 kiva_coltypes <-
   get_col_types(kiva)
