@@ -1,14 +1,19 @@
-library(R.utils)
+# CHANGE THIS PATH TO REPO LOCATION
+root <- "C:/Users/gleas/Google Drive/Coding/R/kiva/"
+loans_path <- "C:/Users/gleas/Google Drive/Coding/R/Data Sources/kiva/loans.csv"
 
-setwd("C:/Users/gleas/Google Drive/Coding/R/")
-sourceDirectory(path = "kiva/utilityfunctions", pattern = "*.R")
+func_names <- dir("./utilityfunctions/")
+# Load functions
+for (i in 1:length(func_names)) { source(paste0("./utilityfunctions/",func_names[i])) } 
+
+rm(i, func_names)
 
 load_libraries()
 
 # Load data ----------------------
 
 kiva <- 
-  read_csv(file = "C:/Users/gleas/Google Drive/Coding/R/Data Sources/kiva/loans.csv")
+  read_csv(file = loans_path)
 
 kiva_coltypes <-
   get_col_types(kiva)
@@ -331,7 +336,7 @@ for (i in seq_along(kv_nm_strs)) {
 }
 
 # Cleanup
-rm(kiva_nums, kiva_nums_u5k)
+rm(kiva_nums, kiva_nums_u5k, color_i, colors, i, j, name_i, name_j, kv_nm_strs)
 
 # Loop KNN model for 50k row, 100 times for different K values and look at misclass distribution ------
 

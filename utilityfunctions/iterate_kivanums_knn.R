@@ -1,5 +1,3 @@
-source("utilityfunctions/run_knn_on.R")
-
 iterate_kivanums_knn <- function(n_iter, kmin, kmax) {
   
   results_kvals <-
